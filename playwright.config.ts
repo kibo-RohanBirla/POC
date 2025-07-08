@@ -14,7 +14,6 @@ if (process.env.ENV) {
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -25,8 +24,8 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
-   timeout: 30000, // 30 seconds timeout for each action
+  reporter: [['html', { outputFolder: `./playwright-report/playwright-report-${Date.now()}` }]],
+   timeout: 60000, // 60 seconds timeout for each action
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -34,7 +33,13 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    javaScriptEnabled: true,
+     geolocation: { longitude: 12.492507, latitude: 41.889938 },
     headless: false,
+     permissions: ['geolocation'],
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6099.71 Safari/537.36',
+    // Emulates the user timezone.
+    timezoneId: 'Europe/Paris',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     //envConfig: env, // Custom property to inject env config into test context
@@ -45,6 +50,7 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'],
+        deviceScaleFactor: undefined,
         launchOptions: {
           args: ['--start-maximized']
         }

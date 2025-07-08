@@ -1,6 +1,7 @@
 import { Page } from '@playwright/test';
 
 export class OrderPage {
+ 
   readonly page: Page;
 
   constructor(page: Page) {
@@ -45,8 +46,11 @@ export class OrderPage {
     await this.page.getByRole('link', { name: 'Flat Rate-$15$' }).click();
   }
 
+   async saveOrder() {
+    await this.page.getByText('Save').nth(2).click();
+  }
   async submitOrder() {
-    await this.page.locator('#button-1502').click();
-    await this.page.locator('#progressbutton-1167').click();
+   
+    await this.page.getByText('Submit Order').click();
   }
 }

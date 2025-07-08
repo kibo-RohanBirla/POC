@@ -8,7 +8,7 @@ export class ReturnRulePage {
   }
 
   async gotoReturnRules() {
-    await this.page.goto('https://t17838.sb.gdev09.gcp.kibocommerce.com/_rulesengine/returnRules');
+    await this.page.goto('await page.goto('https://www.gdev09.gcp.kibocommerce.com/login?returnUrl=%2flogin%2fto%3fscopetype%3dTenant%26scopeid%3d17838%26postbackurl%3dhttps%253a%252f%252ft17838.sb.gdev09.gcp.kibocommerce.com%253a443%252f_rulesengine%252f_authPostBack%26redirecturl%3d%252f_rulesengine%252freturnRules&_kcb=1.2511.0.0');');
   }
 
   async createReturnRule({ name, description, productRule, customerRule }: { name: string, description: string, productRule: string, customerRule: string }) {
