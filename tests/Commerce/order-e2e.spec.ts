@@ -6,14 +6,14 @@ import { expect } from '@playwright/test';
 import { OrderApiHelper } from '../../helpers/api/orderApiHelper';
 import { OrderPage } from '../../pages/main/orders/orders/OrderPage';
 let orderNumber: Number;
-test('Create new order using POM', async ({loginPage, page }) => {
+test('Create new order using POM', {tag: '@order-ui'}, async ({loginPage, page }) => {
   const orderHelper = new OrderHelper();
-
+``
   orderNumber = await orderHelper.CreateAndSubmitOrder(page);
 
 });
 
-test.describe('Order Management Tests', () => {
+test.describe('Order Management Tests', {tag: '@order-management'}, () => {
   let orderHelper: OrderHelper;
   let paymentPage: OrderPaymentPage;
   let orderPage: OrderPage;
@@ -33,7 +33,7 @@ test.describe('Order Management Tests', () => {
     await orderPage.verifyOrderStatus('Accepted');
   });
 
-  test('Add payment to order', async ({page}) => {
+  test('Add payment to order', {tag: '@payment'}, async ({page}) => {
     const orderHelper = new OrderHelper();
 
     await paymentPage.clickPaymentsTab();
@@ -50,7 +50,7 @@ test.describe('Order Management Tests', () => {
     await paymentPage.verifyPaymentStatus('Authorized'); 
 });
 
-test('Fulfill the order from admin UI', async ({page}) => {
+test('Fulfill the order from admin UI', {tag: '@fulfillment'}, async ({page}) => {
  const Shipments = new shipmentsPage(page);
  await Shipments.clickShipmentsTab();
  await Shipments.clickUpdateShipment();

@@ -15,8 +15,8 @@ test('Create new order using POM', async ({loginPage, page }) => {
 });
      
 
-test('Add payment to order', async ({loginPage, page, request}) => {
-
+test('Add payment to order', {tag: '@payment'}, async ({loginPage, page, request}) => {
+ 
   const orderHelper = new OrderHelper();
    const paymentPage = new OrderPaymentPage(page );
    const orderPage = new OrderPage(page);
