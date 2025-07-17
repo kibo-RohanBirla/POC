@@ -7,3 +7,4 @@ test-results/
 playwright/.cache/
 allure-results/
 build/
+allure-report/

@@ -5,7 +5,7 @@ import { ProductGridPage } from '../../pages/main/catalog/prodcuts/productGridPa
 import { StorefrontPage } from '../../pages/StorefrontPage';
 import { generateUniqueProductCodeAndTitle } from '../../helpers/testUtils';
 
-test('Create Product and Check PDP Storefront', async ({ page }) => {
+test('Create Product and Check PDP Storefront', {tag:'@catalog'}, async ({ page }) => {
   // Initialize page objects
   const adminLoginPage = new AdminLoginPage(page);
   const productGridPage = new ProductGridPage(page);

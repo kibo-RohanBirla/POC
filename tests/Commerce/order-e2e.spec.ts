@@ -5,10 +5,11 @@ import { OrderPaymentPage } from '../../pages/main/orders/orders/OrderPaymentPag
 import { expect } from '@playwright/test';
 import { OrderApiHelper } from '../../helpers/api/orderApiHelper';
 import { OrderPage } from '../../pages/main/orders/orders/OrderPage';
+
 let orderNumber: Number;
 test('Create new order using POM', {tag: '@order-ui'}, async ({loginPage, page }) => {
   const orderHelper = new OrderHelper();
-``
+  // Create and submit a new order
   orderNumber = await orderHelper.CreateAndSubmitOrder(page);
 
 });

@@ -3,7 +3,7 @@ import { AdminLoginPage } from '../../pages/AdminLoginPage';
 import { DiscountEditPage } from '../../pages/main/catalog/discounts/discountEditPage';
 import { DiscountVerification } from '../../pages/main/catalog/discounts/discountVerification';
 
-test('Create Order Discount', async ({ page }) => {
+test('Create Order Discount', {tag:'@catalog'}, async ({ page }) => {
   // Initialize page objects
   const adminLoginPage = new AdminLoginPage(page);
   const orderDiscountPage = new DiscountEditPage(page);
