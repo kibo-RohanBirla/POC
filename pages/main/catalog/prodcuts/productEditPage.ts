@@ -38,6 +38,8 @@ export class ProductEditPage {
     await this.page.locator('.x-component.inline-trigger').nth(1).click();
     await this.page.locator('input.x-form-checkbox.x-form-cb').nth(7).click();
     await this.page.locator('body').click();
+    //wait 2 seconds for the UI to update
+    await this.page.waitForTimeout(2000);
   }
 
   async saveProduct() {
