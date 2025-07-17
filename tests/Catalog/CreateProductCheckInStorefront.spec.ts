@@ -16,7 +16,7 @@ test('Create Product and Check PDP Storefront', async ({ page }) => {
   const timestamp = generateUniqueProductCodeAndTitle(); // Unique product code and title
   const productPrice = 199.99; // Example price, can be adjusted as needed
 
-  // Set the LOGIN_URL environment variable to match LoginPage URL
+  // Go to the tenant admin login page
   process.env.LOGIN_URL = 'https://t50003.sb.gdev09.gcp.kibocommerce.com/admin/';
 
   // Login
