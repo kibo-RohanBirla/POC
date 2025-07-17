@@ -1,0 +1,175 @@
+{
+    "CreateOrder": {
+    "GetInventoryPayload": {
+      "type": "ANY",
+      "requestLocation": {
+        "locationCode": "WarehouseLocationCode001"
+      },
+      "items": [
+        {
+          "partNumber": null,
+          "upc": "StandardSO03",
+          "sku": null,
+          "quantity": 1
+        }
+      ]
+    },
+
+    "CreateOrderPayload": {
+     
+      "CustomerAccountId": 1000,
+      "Type": "Offline",
+      "ChannelCode": "Ch001",
+      "CurrencyCode": "USD",
+       "BillingInfo": {
+          "BillingContact": {
+            "AccountId": 1001,
+            "Types": [
+              {
+                "Name": "Shipping",
+                "IsPrimary": true
+              },
+              {
+                "Name": "Billing",
+                "IsPrimary": true
+              }
+            ],
+            "Id": 1019,
+            "Email": "sam.billing@email.com",
+            "FirstName": "Sam",
+            "MiddleNameOrInitial": "",
+            "LastNameOrSurname": "Billing",
+            "CompanyOrOrganization": "",
+            "PhoneNumbers": {
+              "Home": "1234567486",
+              "Mobile": "",
+              "Work": ""
+            },
+            "Address": {
+              "Address1": "1845 Kramer Ln",
+              "Address2": "",
+              "Address3": "",
+              "Address4": "",
+              "CityOrTown": "Austin",
+              "StateOrProvince": "TX",
+              "PostalOrZipCode": "78758",
+              "CountryCode": "US",
+              "AddressType": "Residential",
+              "IsValidated": false
+            }
+          },
+          "IsSameBillingShippingAddress": false
+        }
+    },
+
+    "AddItemsToOrderPayload": {
+      "fulfillmentLocationCode": "WarehouseLocationCode001",
+      "fulfillmentMethod": "Ship",
+      "lineId": 1,
+
+      "product": {
+
+        "productCode": "sp_01",
+        "name": "sp_01"
+      },
+      "quantity": 1
+    },
+
+    "UpdateFulfillmentInfoPayload": {
+      "FulfillmentContact": {
+        "Email": "harry@gmail.com",
+        "FirstName": "Harry",
+        "MiddleNameOrInitial": "",
+        "LastNameOrSurname": "Grace",
+        "CompanyOrOrganization": "",
+        "PhoneNumbers": {
+          "Home": "1234567895",
+          "Mobile": "",
+          "Work": ""
+        },
+        "Address": {
+          "Address1": "1845 Kramer Ln",
+          "Address2": "",
+          "Address3": "",
+          "Address4": "",
+          "CityOrTown": "Austin",
+          "StateOrProvince": "TX",
+          "PostalOrZipCode": "78758",
+          "CountryCode": "US",
+          "AddressType": "Residential",
+          "IsValidated": false
+        }
+      },
+      "IsDestinationCommercial": null,
+      "ShippingMethodCode": "be609bb3ed9e436493f7ac67007f91ce",
+      "ShippingMethodName": "Flat Rate-$15",
+      "Data": null
+    },
+
+    "CreatePaymentPayload": {
+      "ActionName": "AuthorizePayment",
+      "CurrencyCode": "USD",
+      "CheckNumber": null,
+      "ReturnUrl": null,
+      "CancelUrl": null,
+      "Amount": 123,
+      "InteractionDate": null,
+      "NewBillingInfo": {
+        "PaymentType": "CreditCard",
+        "PaymentWorkflow": null,
+        "BillingContact": {
+          "Email": "harry@gmail.com",
+          "FirstName": "Harry",
+          "MiddleNameOrInitial": "",
+          "LastNameOrSurname": "Grace",
+          "PhoneNumbers": {
+            "Home": "1234567895",
+            "Mobile": "",
+            "Work": ""
+          },
+          "Address": {
+            "Address1": "1845 Kramer Ln",
+            "Address2": "",
+            "Address3": "",
+            "Address4": "",
+            "CityOrTown": "Austin",
+            "StateOrProvince": "TX",
+            "PostalOrZipCode": "78758",
+            "CountryCode": "US",
+            "AddressType": "Residential",
+            "IsValidated": false
+          }
+        },
+        "IsSameBillingShippingAddress": false,
+        "Card": {
+          "PaymentServiceCardId": "d9f886d5ee9341fcbca9d50e0d89895d",
+          "IsUsedRecurring": false,
+          "NameOnCard": "hkd",
+          "IsCardInfoSaved": false,
+          "PaymentOrCardType": "VISA",
+          "CardNumberPartOrMask": "4111111111111111",
+          "ExpireMonth": 12,
+          "ExpireYear": 2021,
+          "Bin": null
+        },
+        "Token": null,
+        "PurchaseOrder": null,
+        "Check": null,
+        "AuditInfo": null,
+        "StoreCreditCode": null,
+        "StoreCreditType": null,
+        "CustomCreditType": null,
+        "ExternalTransactionId": null,
+        "Data": null
+      },
+      "ReferenceSourcePaymentId": null,
+      "ManualGatewayInteraction": null,
+      "ExternalTransactionId": null,
+      "Data": null
+    },
+
+    "SubmitOrderPayload": {
+      "ActionName": "SubmitOrder"
+    }
+  }
+}

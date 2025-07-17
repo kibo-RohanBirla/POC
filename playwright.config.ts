@@ -20,28 +20,19 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: 2,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html', { outputFolder: `./playwright-report/playwright-report-${Date.now()}` }]],
+  reporter: [['allure-playwright', { outputFolder: `./playwright-report/playwright-report-${Date.now()}` }]],
    timeout: 60000, // 60 seconds timeout for each action
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    javaScriptEnabled: true,
-     geolocation: { longitude: 12.492507, latitude: 41.889938 },
-    headless: false,
-     permissions: ['geolocation'],
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6099.71 Safari/537.36',
-    // Emulates the user timezone.
-    timezoneId: 'Europe/Paris',
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    video: 'on',
     //envConfig: env, // Custom property to inject env config into test context
   },
 
@@ -49,6 +40,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
+      
       use: { ...devices['Desktop Chrome'],
         deviceScaleFactor: undefined,
         launchOptions: {
